@@ -1,10 +1,13 @@
 package com.ashwin.employee.controller;
 
+import java.util.List;
+
 import com.ashwin.employee.model.EmployeeModel;
 import com.ashwin.employee.services.EmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +27,10 @@ public class EmployeeController {
     @PostMapping("/employees")
     public EmployeeModel createEmployee(@RequestBody EmployeeModel employee){
         return employeeService.createEmployee(employee);
+    }
+
+    @GetMapping("/employees")
+    public List<EmployeeModel> getAllEmployees(){
+        return employeeService.getEmployees();
     }
 }
